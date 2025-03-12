@@ -44,10 +44,10 @@ pop ax
 jmp word [return]
 
 .programs:
-dw .os, .piano, .wallpaper, .game, .paint, .pong, .array 
+dw .os, .piano, .wallpaper, .game, .paint, .pong, .brot, .array 
 
 .os:
-dw piano, .off, wallpaper, gamestart, keys, keys, pause.toggle
+dw piano, .off, wallpaper, gamestart, keys, keys, keys, pause.toggle
 
 .piano:
 dw .quit
@@ -62,6 +62,9 @@ dw new, save, .quit
 dw .quit
 
 .pong:
+dw .quit
+
+.brot:
 dw .quit
 
 .array:
@@ -93,7 +96,7 @@ jmp os
 .help:
 dw .helpOS, .helpPiano,.helpPaint,.helpGame, .helpPaint
 .helpOS:
-db 0x0D, 'enter 1 for piano', 0x0D, 'enter 2 for off, and saves the game', 0x0D, 'enter 3 for wallpaper', 0x0D, 'enter 4 for game', 0x0D, 'enter 5 for paint', 0x0D, 'enter 6 for pong', 0x0D, 'enter 7 to toggle pause durations', 0x0D, 'enter h for help with any program', 0
+db 0x0D, 'enter 1 for piano', 0x0D, 'enter 2 for off, and saves the game', 0x0D, 'enter 3 for wallpaper', 0x0D, 'enter 4 for game', 0x0D, 'enter 5 for paint', 0x0D, 'enter 6 for pong', 0x0D, 'enter 7 for mandelbrot', 0x0D, 'enter 8 to toggle pause durations', 0x0D, 'enter h for help with any program', 0
 .helpPiano:
 db 0x0D, 'Press a key and produce a tone', 0x0D, 'Enter 1 to quit', 0
 .helpGame:

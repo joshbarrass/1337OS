@@ -1,8 +1,8 @@
 [bits 16]
-[org 0x7c00]
+[org 0x00]
 call diski
 call SetCursorPos
-mov sp, 0xBC00 ;set up stack
+;mov sp, 0xBC00 ;set up stack
 les bx, [os.pointer]
 call cls
 mov [device], dl
@@ -11,7 +11,7 @@ call setfreq
 call printS
 mov cx, 0x20
 call pause
-;mov [program], byte '7'
+mov [program], byte '7'
 ;call keys
 os:
 mov [colour], byte 0x09
@@ -44,7 +44,6 @@ call beep
 jmp Uinput
 
 jmp .loop
-
 
 .string: 
 db 'Welcome to 1337 OS', 0x0D,  0x00
@@ -84,7 +83,7 @@ readwrite:
 %include "keys.asm" ;keyboard driver
 %include "pong.asm" ;pong, back for round 2
 %include "mouse.asm" ;mouse driver
-;%include "game.asm" ;An RPG
+%include "game.asm" ;An RPG
 %include "debug.asm" ;contains debugging tools
 ;%include "test.asm"
 %include "spinner.asm"
